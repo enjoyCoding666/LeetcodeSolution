@@ -9,6 +9,7 @@ import java.util.List;
  */
 class Node {
 	public int val;
+	//为方便解题
 	public List<Node> children;
 
 	public Node() {}

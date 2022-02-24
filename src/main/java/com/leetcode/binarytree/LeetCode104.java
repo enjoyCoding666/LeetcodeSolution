@@ -1,4 +1,4 @@
-package com.leetcode.tree;
+package com.leetcode.binarytree;
 
 /**
  * @Author: EnjoyCoding
@@ -24,6 +24,7 @@ package com.leetcode.tree;
  * return its depth = 3.
  *
  */
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
