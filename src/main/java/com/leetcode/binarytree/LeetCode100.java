@@ -13,7 +13,8 @@ public class LeetCode100 {
 		if( p==null || q==null ) {
 			return false;
 		}
-		//当前节点的值相等，就继续往下递归，不断对比
+		//两棵二叉树的节点值相等，并且左子树相等，右子树也同时相同，这两个节点就视为相等。
+		//继续往下递归，不断对比
 		if(p.val == q.val) {
 			return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 		}
