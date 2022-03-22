@@ -7,10 +7,10 @@ package com.leetcode.binarytree;
  */
 public class TreeNode {
 
-    int val;
     //为方便解答，设置成public，实战不建议
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
     TreeNode(int x) {
         val = x;

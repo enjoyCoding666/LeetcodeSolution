@@ -6,10 +6,10 @@ package com.leetcode.dfs;
  * @Description:
  */
 public class TreeNode {
-
-	int val;
-	TreeNode left;
-	TreeNode right;
+	////为方便解答，设置成public，实战不建议
+	public int val;
+	public TreeNode left;
+	public TreeNode right;
 
 	TreeNode(int x) {
 		val = x;

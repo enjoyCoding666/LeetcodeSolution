@@ -8,6 +8,7 @@ import java.util.List;
  * @Description:
  */
 class Node {
+	//为方便解答，设置成public，实战不建议
 	public int val;
 	public List<Node> children;
 
