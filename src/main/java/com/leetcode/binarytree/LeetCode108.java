@@ -38,6 +38,14 @@ public class LeetCode108 {
     }
 
 
+    /**
+     *  用二分查找法，来构建二叉搜索树。
+     *
+     * @param nums
+     * @param left
+     * @param right
+     * @return
+     */
     public TreeNode buildTree(int[] nums , int left, int right) {
         if (nums == null) {
             return null;
