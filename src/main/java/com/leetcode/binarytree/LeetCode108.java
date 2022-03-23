@@ -47,7 +47,7 @@ public class LeetCode108 {
      * @return
      */
     public TreeNode buildTree(int[] nums , int left, int right) {
-        if (nums == null) {
+        if (left > right) {
             return null;
         }
         //找出有序数组中间的值
