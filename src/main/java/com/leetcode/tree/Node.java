@@ -7,7 +7,7 @@ import java.util.List;
  * @Date: 2020\4\17 0017 23:01
  * @Description:
  */
-class Node {
+public class Node {
 	public int val;
 	//为方便解题
 	public List<Node> children;
