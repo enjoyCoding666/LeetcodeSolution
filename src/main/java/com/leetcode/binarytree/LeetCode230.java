@@ -10,7 +10,8 @@ import java.util.List;
  *
  * Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
  *
- *
+ * 	 给定一个二叉搜索树的根节点 root ，和一个整数 k ，
+ * 	 请你设计一个算法查找其中第 k 个最小元素（从 1 开始计数）。
  *
  * Example 1:
  *
@@ -36,47 +37,34 @@ import java.util.List;
  *
  */
 public class LeetCode230 {
-	private List<Integer> list=new ArrayList<>();
+	private List<Integer> list = new ArrayList<>();
 
 	public int kthSmallest(TreeNode root, int k) {
-		if(k<0){
+
+		//二叉搜索树，左节点<根节点<右节点，
+		//中序遍历：左节点，根节点，右节点。
+		// 二叉搜索树的中序遍历，得到的是有序数组
+
+		if (k < 1) {
 			return 0;
 		}
-		inOrder(root);
-		int[] arr=list.stream().mapToInt(Integer::valueOf).toArray();
-		return arr[k-1];
+		List<Integer> list = travelTree(root);
+		return list.get(k - 1);
+
 
 	}
 
 
-	/**
-	 * 中序遍历。
-	 * BST 的中序遍历是升序序列
-	 *
-	 * @param node
-	 */
-	public void inOrder(TreeNode node){
-		if(node==null) {
-			return;
+	public List<Integer> travelTree(TreeNode root) {
+		if (root == null) {
+			return list;
 		}
-		inOrder(node.left);
-		list.add(node.val);
-		inOrder(node.right);
-	}
+		//中序遍历：左节点，根节点，右节点。
+		travelTree(root.left);
+		list.add(root.val);
+		travelTree(root.right);
 
-	/**
-	 *  不使用list的成员变量，直接作为参数，在递归中增加元素。
-	 *
-	 * @param root
-	 * @param arr
-	 * @return
-	 */
-	public ArrayList<Integer> inOrderByListParam(TreeNode root, ArrayList<Integer> arr) {
-		if (root == null) return arr;
-		inOrderByListParam(root.left, arr);
-		arr.add(root.val);
-		inOrderByListParam(root.right, arr);
-		return arr;
+		return list;
 	}
 
 }
