@@ -33,7 +33,7 @@ import java.util.Map;
  *
  *
  */
-class Solution {
+public class LeetCode169 {
     public int majorityElement(int[] nums) {
         if (nums == null) {
             return 0;
