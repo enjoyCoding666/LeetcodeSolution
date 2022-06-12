@@ -41,12 +41,12 @@ public class LeetCode49 {
             //排序后的字符数组转字符串
             String key = new String(chars);
             //用字符串作key，用list作为value
-            List<String> list = map.getOrDefault(key, new ArrayList<String>());
+            List<String> list = map.getOrDefault(key, new ArrayList<>());
             list.add(str);
             map.put(key, list);
         }
         //map.values()获取到map的所有value，也就是上面的list
-        return new ArrayList<List<String>>(map.values());
+        return new ArrayList<>(map.values());
 
     }
 }
