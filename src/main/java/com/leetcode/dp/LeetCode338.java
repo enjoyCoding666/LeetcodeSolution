@@ -1,4 +1,4 @@
-package com.leetcode.dynamicprogramming;
+package com.leetcode.dp;
 
 
 /**
