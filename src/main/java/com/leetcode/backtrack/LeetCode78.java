@@ -50,6 +50,7 @@ public class LeetCode78 {
     public void backTrack(int i, int[] nums, List<List<Integer>> resultList, List<Integer> tmp) {
         //添加子集
         resultList.add(new ArrayList<>(tmp));
+        //循环从i开始，排除掉已经添加过的元素
         for(int j=i;j<nums.length;j++) {
             //添加选择的元素
             tmp.add(nums[j]);
