@@ -1,4 +1,4 @@
-package com.leetcode.other;
+package com.leetcode.interview;
 
 
 /**
