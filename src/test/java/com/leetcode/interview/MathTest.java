@@ -1,4 +1,4 @@
-package com.leetcode.other;
+package com.leetcode.interview;
 
 public class MathTest {
     public static void main(String[] args) {
