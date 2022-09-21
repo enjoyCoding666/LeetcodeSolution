@@ -99,6 +99,19 @@ public class LeetCode5 {
         return s.substring(begin, begin + maxLength);
     }
 
-
+    /**
+     *
+     * 注意点：
+     * * (1)定义 boolean 数组 dp[i][j]。
+     * // dp[i][j] 表示 s[i..j] 这个子串是否是回文串
+     * boolean[][] dp = new boolean[len][len];
+     *
+     * (2)先初始化所有长度为1的。
+     * (3)遍历两次，不同的长度，以及不同的左下标，逐步递推。这个比较特别
+     * (4)状态转移方程：  dp[i][j] = dp[i + 1][j - 1];
+     * (5) 只要 dp[i][L] == true 成立，就表示子串 s[i..L] 是回文，此时记录回文长度和起始位置。
+     *
+     *
+     */
 
 }
