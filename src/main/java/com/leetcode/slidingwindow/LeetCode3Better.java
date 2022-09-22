@@ -50,6 +50,15 @@ public class LeetCode3Better {
         for (int i = 0; i < s.length(); i++) {
             //如果出现重复的字符,就刷新滑动窗口的左下标.
             if (map.containsKey(s.charAt(i))) {
+                //比较关键的点：
+//                1）当前字符包含在当前有效的子段中，如：abca，当我们遍历到第二个a，当前有效最长子段是 abc，我们又遍历到a，
+//                那么此时更新 left 为 map.get(a)+1=1，当前有效子段更新为 bca；
+//                2）当前字符不包含在当前最长有效子段中，如：abba，我们先添加a,b进map，此时left=0，我们再添加b，发现map中包含b，
+//                而且b包含在最长有效子段中，就是1）的情况，我们更新 left=map.get(b)+1=2，此时子段更新为 b，而且map中仍然包含a，map.get(a)=0；
+//                随后，我们遍历到a，发现a包含在map中，且map.get(a)=0，如果我们像1）一样处理，就会发现 left=map.get(a)+1=1，实际上，left此时
+//                应该不变，left始终为2，子段变成 ba才对。
+//
+//                为了处理以上2类情况，我们每次更新left，left=Math.max(left , map.get(ch)+1).
                 left = Math.max(left, map.get(s.charAt(i))+1);
             }
             //使用map记录字符的下标
@@ -61,4 +70,9 @@ public class LeetCode3Better {
 
     }
 
+    /**
+     *  关键的点：
+     *  (1)找出left左下标，如果重复就刷新左下标。 map.get(s.charAt(i))+1。
+     *  (2)求解长度，可以用右下标减左下标。 i-left+1。
+     */
 }
