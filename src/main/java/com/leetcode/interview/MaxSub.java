@@ -28,8 +28,9 @@ public class MaxSub {
         char[] s2 = str2.toCharArray();
         int l1 = str1.length();
         int l2 = str2.length();
+        //先确定状态，f(i, j)表示str1中前i个字符和str2中前j个字符中的最长公共子序列的长度
         //注意数组长度
-        int[][] ans = new int[l1 + 1][l2 + 1];
+        int[][] dp = new int[l1 + 1][l2 + 1];
         StringBuilder res = new StringBuilder();
         int last1 = 0;
         int max = 0;
@@ -37,13 +38,13 @@ public class MaxSub {
             for (int j = 1; j <= l2; j++) {
                 if (s1[i - 1] == s2[j - 1]) {
                     //状态转移方程
-                    ans[i][j] = ans[i - 1][j - 1] + 1;
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
-                    ans[i][j] = 0;
+                    dp[i][j] = 0;
                 }
-                if (ans[i][j] > max) {
+                if (dp[i][j] > max) {
                     //记住最长子串的首尾下标
-                    max = ans[i][j];
+                    max = dp[i][j];
                     last1 = i;
                 }
             }

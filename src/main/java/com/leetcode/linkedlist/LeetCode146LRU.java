@@ -80,6 +80,7 @@ public class LeetCode146LRU {
 
 
     public void put(int key, int val) {
+        //主要分几种情况： 已存在，不存在
         if (linkedHashMap.containsKey(key)) {
             //修改key的值
             linkedHashMap.put(key, val);
@@ -87,8 +88,9 @@ public class LeetCode146LRU {
             makeRecently(key);
             return;
         }
-
+        //超出边界
         if (linkedHashMap.size() >= this.capacity) {
+
             //链表头部就是最久未使用的key，此处用法多留意
             Integer oldestKey = linkedHashMap.keySet().iterator().next();
             linkedHashMap.remove(oldestKey);
