@@ -46,6 +46,7 @@ public class LeetCode3Better {
         //Char的泛型是 Character，别写错了
         HashMap<Character, Integer> map = new HashMap<>();
         int max = 0;
+        //左边界
         int left = 0;
         for (int i = 0; i < s.length(); i++) {
             //如果出现重复的字符,就刷新滑动窗口的左下标.
@@ -53,6 +54,7 @@ public class LeetCode3Better {
                 //比较关键的点：
 //                1）当前字符包含在当前有效的子段中，如：abca，当我们遍历到第二个a，当前有效最长子段是 abc，我们又遍历到a，
 //                那么此时更新 left 为 map.get(a)+1=1，当前有效子段更新为 bca；
+//                简单概括，就是 如果有重复元素，把重复的左边的元素移出就行了。
 //                2）当前字符不包含在当前最长有效子段中，如：abba，我们先添加a,b进map，此时left=0，我们再添加b，发现map中包含b，
 //                而且b包含在最长有效子段中，就是1）的情况，我们更新 left=map.get(b)+1=2，此时子段更新为 b，而且map中仍然包含a，map.get(a)=0；
 //                随后，我们遍历到a，发现a包含在map中，且map.get(a)=0，如果我们像1）一样处理，就会发现 left=map.get(a)+1=1，实际上，left此时
@@ -63,7 +65,7 @@ public class LeetCode3Better {
             }
             //使用map记录字符的下标
             map.put(s.charAt(i), i);
-            //i - left + 1表示非重复子串的长度
+            //i - left + 1表示非重复子串的长度。i是右边界，left 是左边界。
             max = Math.max(max, i - left + 1);
         }
         return max;
