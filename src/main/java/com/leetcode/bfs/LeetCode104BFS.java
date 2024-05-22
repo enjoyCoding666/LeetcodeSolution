@@ -1,4 +1,6 @@
-package com.leetcode.dfs;
+package com.leetcode.bfs;
+
+import com.leetcode.dfs.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -8,7 +10,7 @@ import java.util.Queue;
  * @Date: 2020\5\6 0006 23:54
  * @Description:
  */
-public class LeetCode104DFS {
+public class LeetCode104BFS {
 	public int maxDepth(TreeNode root) {
 		if (root == null){
 			return 0;
