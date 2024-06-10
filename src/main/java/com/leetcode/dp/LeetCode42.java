@@ -34,7 +34,8 @@ public class LeetCode42 {
         //初始化最左边的最大值
         leftMax[0] = height[0];
         //计算出下标左边最高的高度
-        for (int i = 0; i <n; i++) {
+        for (int i = 1; i <n; i++) {
+            //动态规划。最高的柱子，要么是之前的最高的柱子，要么是当前的柱子
             leftMax[i] = Math.max(leftMax[i - 1], height[i]);
         }
 
@@ -43,6 +44,7 @@ public class LeetCode42 {
         rightMax[n - 1] = height[n - 1];
         //计算出下标右边的最高高度。
         //从最右边开始，逐步往左.n - 1的值已经知道了，注意下标是 n-2 开始。
+        //注意，由于是从右到左，所以是 i--
         for (int i = n - 2; i >= 0; i--) {
             rightMax[i] = Math.max(rightMax[i + 1], height[i]);
         }
@@ -51,6 +53,7 @@ public class LeetCode42 {
         int ans = 0;
         //计算出两边高度差的最小值
         for (int i = 0; i < n; i++) {
+            //左右两边最高柱子中较矮的，减去当前柱子的高度，就是能接的雨水。
             ans += Math.min(leftMax[i], rightMax[i]) - height[i];
         }
         return ans;
