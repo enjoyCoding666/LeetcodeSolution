@@ -3,7 +3,7 @@ package com.leetcode.string;
 public class LeetCode165 {
 
     /**
-     * 比较版本号。 格式类似 "1.2", "1.10"
+     * 比较版本号。 格式类似 "1.2.1", "1.10"
      *
      * @param version1
      * @param version2
