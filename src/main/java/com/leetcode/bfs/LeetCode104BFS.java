@@ -16,10 +16,12 @@ public class LeetCode104BFS {
 			return 0;
 		}
 		int depth = 0;
+		//这里的队列初始化，可以用链表
 		Queue<TreeNode> nodes = new LinkedList<>();
 		//队列使用offer和poll不会抛异常
 		nodes.offer(root);
 		while (!nodes.isEmpty()) {
+			//此处有坑，一定要先把每一层的数量记录下来，不然队列的长度发生变化，遍历次数不一样
 			int size = nodes.size();
 			//遍历一次，深度就加一
 			depth++;
